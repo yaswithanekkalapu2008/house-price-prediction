@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HOUSE PRICE PREDICTION</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            HOUSE PRICE PREDICTION<span>AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#valuation">Valuation</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">AI POWERED REAL ESTATE</p>
+
+            <h1>
+                Discover the
+                <span>true value</span>
+                of your property.
+            </h1>
+
+            <p class="hero-text">
+                Intelligent property valuation powered by
+                machine learning and modern market insights.
+            </p>
+
+            <a href="#valuation" class="hero-button">
+                ✦ Start Valuation
+            </a>
+
+        </div>
+
+        <div class="hero-card">
+            <div class="card-label">AI ESTIMATE</div>
+            <div class="price">₹1.24 Cr</div>
+            <div class="price-info">Estimated property value</div>
+
+            <div class="mini-stats">
+                <div>
+                    <strong>₹5,188</strong>
+                    <small>/ sq.ft</small>
+                </div>
+
+                <div>
+                    <strong>94%</strong>
+                    <small>Confidence</small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Valuation Section -->
+    <section class="valuation" id="valuation">
+
+        <div class="section-heading">
+            <p>PROPERTY VALUATION</p>
+
+            <h2>
+                Tell us about your
+                <span>property.</span>
+            </h2>
+
+            <div class="line"></div>
+        </div>
+
+
+        <form action="/predict" method="POST" class="property-form">
+
+            <!-- Location -->
+            <div class="input-group">
+                <label>📍 Location</label>
+
+                <select name="location">
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Pune">Pune</option>
+                </select>
+            </div>
+
+
+            <!-- Property Type -->
+            <div class="input-group">
+                <label>🏠 Property Type</label>
+
+                <select name="property_type">
+                    <option value="Apartment">Apartment</option>
+                    <option value="Independent House">
+                        Independent House
+                    </option>
+                    <option value="Villa">Villa</option>
+                </select>
+            </div>
+
+
+            <!-- Area -->
+            <div class="input-group">
+                <label>📐 Area (sq.ft)</label>
+
+                <input
+                    type="number"
+                    name="area"
+                    placeholder="Example: 2400"
+                    required>
+            </div>
+
+
+            <!-- Bedrooms -->
+            <div class="input-group">
+                <label>🛏️ Bedrooms</label>
+
+                <select name="bedrooms">
+                    <option value="1">1 BHK</option>
+                    <option value="2">2 BHK</option>
+                    <option value="3">3 BHK</option>
+                    <option value="4">4 BHK</option>
+                    <option value="5">5+ BHK</option>
+                </select>
+            </div>
+
+
+            <!-- Bathrooms -->
+            <div class="input-group">
+                <label>🚿 Bathrooms</label>
+
+                <select name="bathrooms">
+                    <option value="1">1 Bathroom</option>
+                    <option value="2">2 Bathrooms</option>
+                    <option value="3">3 Bathrooms</option>
+                    <option value="4">4+ Bathrooms</option>
+                </select>
+            </div>
+
+
+            <!-- Age -->
+            <div class="input-group">
+                <label>🏗️ Property Age</label>
+
+                <input
+                    type="number"
+                    name="age"
+                    placeholder="Years"
+                    required>
+            </div>
+
+
+            <!-- Parking -->
+            <div class="input-group">
+                <label>🚗 Parking</label>
+
+                <select name="parking">
+                    <option value="0">No Parking</option>
+                    <option value="1">1 Space</option>
+                    <option value="2">2 Spaces</option>
+                    <option value="3">3+ Spaces</option>
+                </select>
+            </div>
+
+
+            <!-- Furnishing -->
+            <div class="input-group">
+                <label>🛋️ Furnishing</label>
+
+                <select name="furnishing">
+                    <option value="Unfurnished">Unfurnished</option>
+                    <option value="Semi Furnished">
+                        Semi Furnished
+                    </option>
+                    <option value="Fully Furnished">
+                        Fully Furnished
+                    </option>
+                    <option value="Luxury">Luxury</option>
+                </select>
+            </div>
+
+
+            <!-- Amenities -->
+            <div class="amenities">
+
+                <label>✨ Premium Amenities</label>
+
+                <div class="amenity-grid">
+
+                    <label class="amenity">
+                        <input type="checkbox" name="pool">
+                        Swimming Pool
+                    </label>
+
+                    <label class="amenity">
+                        <input type="checkbox" name="gym">
+                        Gym
+                    </label>
+
+                    <label class="amenity">
+                        <input type="checkbox" name="lift">
+                        Lift
+                    </label>
+
+                    <label class="amenity">
+                        <input type="checkbox" name="security">
+                        Security
+                    </label>
+
+                    <label class="amenity">
+                        <input type="checkbox" name="garden">
+                        Garden
+                    </label>
+
+                    <label class="amenity">
+                        <input type="checkbox" name="clubhouse">
+                        Club House
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- Button -->
+            <button type="submit" class="predict-button">
+                ✦ ESTIMATE PROPERTY VALUE
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Features -->
+    <section class="features" id="features">
+
+        <div class="section-heading">
+            <p>WHY HOUSE PRICE PREDICTION AI</p>
+
+            <h2>
+                More than just a
+                <span>prediction.</span>
+            </h2>
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Valuation</h3>
+                <p>
+                    Machine learning analyzes property
+                    characteristics to estimate value.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Market Analytics</h3>
+                <p>
+                    Understand price trends and property
+                    value per square foot.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3>Premium Insights</h3>
+                <p>
+                    Get a detailed view of the factors
+                    affecting your property's value.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="about">
+
+        <div class="logo">
+            HOUSE PRICE PREDICTION <span>AI</span>
+        </div>
+
+        <p>
+            Intelligent Property Valuation • Powered by Machine Learning
+        </p>
+
+        <small>
+            © 2026 HOUSE PRICE PREDICTION AI
+        </small>
+
+    </footer>
+
+</body>
+</html>

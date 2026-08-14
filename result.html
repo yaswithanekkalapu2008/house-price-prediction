@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUXORA AI | Property Valuation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        LUXORA <span>AI</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#valuation">New Valuation</a>
+    </div>
+
+</nav>
+
+
+<section class="result-page">
+
+    <div class="result-heading">
+
+        <p>✦ LUXORA AI VALUATION</p>
+
+        <h1>Your Property's<br>
+            <span>Estimated Value</span>
+        </h1>
+
+    </div>
+
+
+    <div class="result-card">
+
+        <p class="result-label">
+            AI ESTIMATED PROPERTY VALUE
+        </p>
+
+        <h2>{{ price }}</h2>
+
+        <p class="result-subtitle">
+            Based on the property details you provided
+        </p>
+
+
+        <div class="price-range">
+
+            <div>
+                <small>Estimated Range</small>
+
+                <strong>
+                    {{ lower }} — {{ upper }}
+                </strong>
+            </div>
+
+            <div>
+                <small>Price / sq.ft</small>
+
+                <strong>
+                    {{ price_per_sqft }}
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="property-summary">
+
+        <h2>Property Summary</h2>
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+                <span>📍 Location</span>
+                <strong>{{ location }}</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>🏠 Property Type</span>
+                <strong>{{ property_type }}</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>📐 Area</span>
+                <strong>{{ area }} sq.ft</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>🛏️ Bedrooms</span>
+                <strong>{{ bedrooms }} BHK</strong>
+            </div>
+
+            <div class="summary-item">
+                <span>🚿 Bathrooms</span>
+                <strong>{{ bathrooms }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="result-actions">
+        <!-- WHY THIS PRICE -->
+<div class="why-price">
+
+    <div class="why-heading">
+        <p>AI INSIGHTS</p>
+
+        <h2>Why is it valued this way?</h2>
+
+        <span>
+            Key factors considered by the valuation model
+        </span>
+    </div>
+
+    <div class="reason-list">
+
+        {% for reason in reasons %}
+
+        <div class="reason-card">
+
+            <div class="reason-icon">
+                ✦
+            </div>
+
+            <p>{{ reason }}</p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+        <a href="/" class="hero-button">
+            ← New Valuation
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="logo">
+        LUXORA <span>AI</span>
+    </div>
+
+    <p>
+        Intelligent Property Valuation • Powered by Machine Learning
+    </p>
+
+</footer>
+
+</body>
+</html>
+
